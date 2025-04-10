@@ -1,0 +1,43 @@
+services:
+  backend:
+    image: cmvghazi/movies-backend:v1
+    depends_on:
+      - mongodb
+    build:
+      context: ./movies-backend
+    container_name: movies-backend
+    # ports:
+    #   - "8080:8080"
+    networks:
+      - movies-network
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://root:123456@mongodb:27017/movie-api-db?authSource=admin
+      - SERVER_PORT=8080
+  mongodb:
+    image: mongo:8.0.6
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=123456
+    networks:
+      - movies-network
+    volumes:
+      - db:/data/db
+      - ./movies-backend/mongo-seed:/docker-entrypoint-initdb.d
+
+  frontend:
+        image: cmvghazi/movies-frontend:v1
+        build:
+          context: ./movies-frontend
+        ports:
+          - "80:80"
+        depends_on:
+          - backend
+        networks:
+          - movies-network
+
+volumes:
+  db:
+
+networks:
+  movies-network:
+    driver: bridge
