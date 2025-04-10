@@ -1,0 +1,6 @@
+[submodule "movies-frontend"]
+	path = movies-frontend
+	url = git@github.com:gbenachour/movies-frontend.git
+[submodule "movies-backend"]
+	path = movies-backend
+	url = git@github.com:gbenachour/movies-backend.git
