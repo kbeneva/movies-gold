@@ -20,7 +20,7 @@ sudo cp /opt/movies-gold/.env.example /opt/movies-gold/.env
 
 # Running docker compose (deploying stack)
 echo "Deploying application..."
-sudo docker compose -f /opt/movies-gold/compose.yaml up  -d
+sudo docker compose -f /opt/movies-gold/compose.yaml up -d
 
-# Deleting opt files
+# Deleting opt files (repo, installation scripts etc...)
 sudo rm -rf /opt/*
