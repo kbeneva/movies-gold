@@ -22,5 +22,9 @@ sudo cp /opt/movies-gold/.env.example /opt/movies-gold/.env
 echo "Deploying application..."
 sudo docker compose -f /opt/movies-gold/compose.yaml up -d
 
+# Sleeping to wait for db to populate
+echo "Waiting for database to populate..."
+sleep 30
+
 # Deleting opt files (repo, installation scripts etc...)
 sudo rm -rf /opt/*
