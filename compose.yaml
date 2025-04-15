@@ -1,8 +1,8 @@
 services:
   frontend:
-    image: cmvghazi/movies-frontend:${FRONTEND_VERSION:-latest}
+    image: 6193811/movies-frontend:v1
     build:
-      context: ./movies-frontend
+      context: ./movies-frontend/movies-frontend
     ports:
       - "80:80"
     depends_on:
@@ -11,10 +11,10 @@ services:
       - movies-network
 
   backend:
-    image: cmvghazi/movies-backend:${BACKEND_VERSION:-latest}
+    image: 6193811/movies-backend:v1
     container_name: movies-backend
     build:
-      context: ./movies-backend
+      context: ./movies-backend/movies-backend
     # In case you just want to deploy the backend and access it
     # without deploying the frontend, add a port mapping
     # ports:
