@@ -1,6 +1,6 @@
 services:
   frontend:
-    image: 6193811/movies-frontend:v1
+    image: 6193811/tp2-6193811-6238761-frontend:v1
     build:
       context: ./movies-frontend/movies-frontend
     ports:
@@ -11,7 +11,7 @@ services:
       - movies-network
 
   backend:
-    image: 6193811/movies-backend:v1
+    image: 6193811/tp2-6193811-6238761-backend:v1
     container_name: movies-backend
     build:
       context: ./movies-backend/movies-backend
